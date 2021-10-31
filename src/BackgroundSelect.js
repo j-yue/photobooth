@@ -2,7 +2,6 @@ import { Layer, Box, Avatar, Text, Heading } from "grommet";
 import background from "./images/background.jpeg";
 import abandoned from "./images/abandoned.jpeg";
 import ghost from "./images/ghost.jpeg";
-import it from "./images/it.jpeg";
 import tree from "./images/tree.jpeg";
 
 const BackgroundSelect = ({ handleBgSelect }) => {
@@ -10,7 +9,6 @@ const BackgroundSelect = ({ handleBgSelect }) => {
     [background, "scary mansion"],
     [abandoned, "abandoned hallway"],
     [ghost, "ghost"],
-    [it, "clown"],
     [tree, "spooky tree"],
   ];
   return (
