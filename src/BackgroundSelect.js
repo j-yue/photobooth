@@ -3,6 +3,7 @@ import background from "./images/background.jpeg";
 import abandoned from "./images/abandoned.jpeg";
 import ghost from "./images/ghost.jpeg";
 import tree from "./images/tree.jpeg";
+import charmed from "./images/charmed.jpg";
 
 const BackgroundSelect = ({ handleBgSelect }) => {
   const gallery = [
@@ -10,6 +11,7 @@ const BackgroundSelect = ({ handleBgSelect }) => {
     [abandoned, "abandoned hallway"],
     [ghost, "ghost"],
     [tree, "spooky tree"],
+    [charmed, "the charmed house"],
   ];
   return (
     <Layer
