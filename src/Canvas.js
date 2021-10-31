@@ -35,8 +35,10 @@ const Canvas = ({ inputs, setOutput, setLoading, setP5Instance }) => {
   let bg; //background p5 image
 
   const sketch = (p) => {
+    console.log(p.windowWidth);
     p.setup = () => {
       p.loadImage(background, (image) => {
+        image.resize(p.windowWidth, 0);
         bg = image;
         p.loadImage(greenscreen, (_image) => {
           _image.resize(bg.width / 2, 0);
