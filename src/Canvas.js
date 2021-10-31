@@ -40,7 +40,7 @@ const Canvas = ({ inputs, setOutput, setLoading, setP5Instance }) => {
         image.resize(p.windowWidth, 0);
         bg = image;
         p.loadImage(greenscreen, (_image) => {
-          _image.resize(bg.width / 2, 0);
+          _image.resize(bg.width * (2 / 3), 0);
           img = _image;
 
           p.image(bg, 0, 0);
