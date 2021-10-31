@@ -35,7 +35,6 @@ const Canvas = ({ inputs, setOutput, setLoading, setP5Instance }) => {
   let bg; //background p5 image
 
   const sketch = (p) => {
-    console.log(p.windowWidth);
     p.setup = () => {
       p.loadImage(background, (image) => {
         image.resize(p.windowWidth, 0);
@@ -55,8 +54,6 @@ const Canvas = ({ inputs, setOutput, setLoading, setP5Instance }) => {
           let outputUrl = p.canvas.toDataURL("image/png");
           setOutput(outputUrl);
           setLoading(false);
-
-          console.log("done");
         });
         p.createCanvas(bg.width, bg.height);
       });
@@ -72,7 +69,7 @@ const Canvas = ({ inputs, setOutput, setLoading, setP5Instance }) => {
       parent.current.removeChild(parent.current.children[0]);
       setMyCanvas(new p5(sketch, parent.current));
     }
-  }, [greenscreen]);
+  }, [inputs]);
 
   useEffect(() => {
     if (myCanvas) setP5Instance(myCanvas);
