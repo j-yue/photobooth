@@ -4,7 +4,7 @@ import UploadButton from "./UploadButton";
 
 const Fab = ({ children }) => {
   return (
-    <Box round="100%" pad="small" margin="small" elevation="xlarge">
+    <Box round="100%" margin="small" elevation="xlarge">
       {children}
     </Box>
   );
