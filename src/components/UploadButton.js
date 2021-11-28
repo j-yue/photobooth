@@ -1,27 +1,28 @@
-import { Button, Box } from "grommet";
+import { Button } from "grommet";
 import { Upload } from "grommet-icons";
+
+const IconLabel = ({ handleChange }) => {
+  return (
+    <label className="upload__label">
+      <input
+        id="upload"
+        name="upload"
+        type="file"
+        style={{ display: "none" }}
+        onChange={(e) => handleChange(e)}
+      />
+      <Upload color="brand" />
+    </label>
+  );
+};
 
 const UploadButton = ({ handleChange }) => {
   return (
     <Button
-      plain
-      margin="small"
+      primary
+      color="fab"
       a11yTitle="Upload greenscreen image"
-      label={
-        <label className="upload__label">
-          <Box direction="row" gap="small" justify="center">
-            <input
-              id="upload"
-              name="upload"
-              type="file"
-              style={{ display: "none" }}
-              onChange={(e) => handleChange(e)}
-            />
-            <Upload color="brand" />
-            Upload
-          </Box>
-        </label>
-      }
+      icon={<IconLabel handleChange={handleChange} />}
     />
   );
 };
