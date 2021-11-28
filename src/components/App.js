@@ -69,10 +69,9 @@ const App = () => {
               <ImageInput src={background}>
                 <Button
                   a11yTitle="Select background"
-                  plain
-                  margin="small"
+                  primary
+                  color="fab"
                   icon={<Select color="brand" />}
-                  label="Background"
                   onClick={() => setShowBgSelect(true)}
                 />
               </ImageInput>

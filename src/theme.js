@@ -5,6 +5,12 @@ const theme = {
     },
     colors: {
       brand: "#6F09C3",
+      fab: "#FFFFFF",
+    },
+  },
+  button: {
+    border: {
+      radius: "100%",
     },
   },
 };
