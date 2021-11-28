@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import theme from "../theme";
-import { Grommet, Image, Grid, Box, Button, Heading, Text } from "grommet";
+import { Grommet, Image, Box, Button, Text } from "grommet";
 import { Download, Aggregate } from "grommet-icons";
 import BackgroundSelect from "./BackgroundSelect";
 import Canvas from "./Canvas";
