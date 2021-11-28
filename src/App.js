@@ -10,7 +10,7 @@ import defaulGreenScreen from "./images/maxresdefault.jpg";
 import defaultBackground from "./images/background.jpeg";
 import preview from "./images/photobooth.jpeg";
 
-function App() {
+const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
   const [background, setBackground] = useState(defaultBackground);
   const [output, setOutput] = useState(preview);
@@ -165,6 +165,6 @@ function App() {
       </Grommet>
     </main>
   );
-}
+};
 
 export default App;
