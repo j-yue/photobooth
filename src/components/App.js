@@ -61,13 +61,14 @@ const App = () => {
 
           <Layout.Section direction="row" gap="large">
             <Box flex elevation="small">
-              <ImageInput src={greenscreen} a11y="Upload greenscreen image">
+              <ImageInput src={greenscreen}>
                 <UploadButton handleChange={handleInputChange} />
               </ImageInput>
             </Box>
             <Box flex elevation="small">
-              <ImageInput src={background} a11y="Select background">
+              <ImageInput src={background}>
                 <Button
+                  a11yTitle="Select background"
                   plain
                   margin="small"
                   icon={<Select color="brand" />}

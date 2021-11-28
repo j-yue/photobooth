@@ -9,10 +9,10 @@ const Fab = ({ children }) => {
   );
 };
 
-const ImageInput = ({ src, a11y, children }) => {
+const ImageInput = ({ src, children }) => {
   return (
     <Stack anchor="top-left" fill>
-      <Image fill fit="cover" a11yTitle={a11y} src={src} />
+      <Image fill fit="cover" src={src} />
       <Fab>{children}</Fab>
     </Stack>
   );

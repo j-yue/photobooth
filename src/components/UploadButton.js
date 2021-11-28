@@ -6,6 +6,7 @@ const UploadButton = ({ handleChange }) => {
     <Button
       plain
       margin="small"
+      a11yTitle="Upload greenscreen image"
       label={
         <label className="upload__label">
           <Box direction="row" gap="small" justify="center">
