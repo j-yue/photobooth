@@ -11,6 +11,7 @@ import defaultBackground from "../images/background.jpeg";
 import preview from "../images/photobooth.jpeg";
 
 import Layout from "./Layout";
+import Header from "./Header";
 
 const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
@@ -54,21 +55,9 @@ const App = () => {
         {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
         <Layout>
           <Layout.Section>
-            <Heading
-              margin="none"
-              color="brand"
-              level="1"
-              alignSelf="center"
-              responsive
-            >
-              Photobooth App
-            </Heading>
+            <Header />
           </Layout.Section>
-          <Layout.Section align="center">
-            <Heading level="2" textAlign="center" responsive margin="none">
-              Replace greenscreens with spooky backgrounds!
-            </Heading>
-          </Layout.Section>
+
           <Layout.Section direction="row" gap="large">
             <Box flex elevation="small">
               <UploadButton handleChange={handleInputChange} />
