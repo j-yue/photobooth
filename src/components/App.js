@@ -12,6 +12,7 @@ import preview from "../images/photobooth.jpeg";
 
 import Layout from "./Layout";
 import Header from "./Header";
+import ImageInput from "./ImageInput";
 
 const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
@@ -60,28 +61,20 @@ const App = () => {
 
           <Layout.Section direction="row" gap="large">
             <Box flex elevation="small">
-              <UploadButton handleChange={handleInputChange} />
-              <Image
-                fill
-                fit="cover"
-                a11yTitle="Greenscreen image"
-                src={greenscreen}
-              />
+              <ImageInput src={greenscreen} a11y="Upload greenscreen image">
+                <UploadButton handleChange={handleInputChange} />
+              </ImageInput>
             </Box>
             <Box flex elevation="small">
-              <Button
-                plain
-                margin="small"
-                icon={<Select color="brand" />}
-                label="Background"
-                onClick={() => setShowBgSelect(true)}
-              />
-              <Image
-                fill
-                fit="cover"
-                a11yTitle="Background image"
-                src={background}
-              />
+              <ImageInput src={background}>
+                <Button
+                  plain
+                  margin="small"
+                  icon={<Select color="brand" />}
+                  label="Background"
+                  onClick={() => setShowBgSelect(true)}
+                />
+              </ImageInput>
             </Box>
           </Layout.Section>
           <Layout.Section elevation="medium">
