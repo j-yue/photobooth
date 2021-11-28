@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import theme from "../theme";
 import { Grommet, Image, Grid, Box, Button, Heading, Text } from "grommet";
 import { Download, Aggregate } from "grommet-icons";
@@ -8,15 +8,16 @@ import Loader from "./Loader";
 import defaulGreenScreen from "../images/maxresdefault.jpg";
 import defaultBackground from "../images/background.jpeg";
 import preview from "../images/photobooth.jpeg";
+import placeholder from "../images/placeholder.jpeg";
 
 import Layout from "./Layout";
 import Header from "./Header";
 import { Upload, Background } from "./ImageInput";
 
 const App = () => {
-  const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
-  const [background, setBackground] = useState(defaultBackground);
-  const [output, setOutput] = useState(preview);
+  const [greenscreen, setGreenscreen] = useState(placeholder);
+  const [background, setBackground] = useState(placeholder);
+  const [output, setOutput] = useState(placeholder);
   const [showPreview, setShowPreview] = useState(true);
   const [loading, setLoading] = useState(false);
   const [p5Instance, setP5Instance] = useState(null);
@@ -47,6 +48,13 @@ const App = () => {
     setBackground(src);
     setShowBgSelect(false);
   };
+
+  // lazy load default demo images
+  useEffect(() => {
+    setGreenscreen(defaulGreenScreen);
+    setBackground(defaultBackground);
+    setOutput(preview);
+  }, []);
 
   return (
     <main>
