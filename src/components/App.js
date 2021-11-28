@@ -1,8 +1,7 @@
 import { useState } from "react";
 import theme from "../theme";
 import { Grommet, Image, Grid, Box, Button, Heading, Text } from "grommet";
-import { Download, Select, Aggregate } from "grommet-icons";
-import UploadButton from "./UploadButton";
+import { Download, Aggregate } from "grommet-icons";
 import BackgroundSelect from "./BackgroundSelect";
 import Canvas from "./Canvas";
 import Loader from "./Loader";
@@ -12,7 +11,7 @@ import preview from "../images/photobooth.jpeg";
 
 import Layout from "./Layout";
 import Header from "./Header";
-import ImageInput from "./ImageInput";
+import { Upload, Background } from "./ImageInput";
 
 const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
@@ -61,20 +60,13 @@ const App = () => {
 
           <Layout.Section direction="row" gap="large">
             <Box flex elevation="small">
-              <ImageInput src={greenscreen}>
-                <UploadButton handleChange={handleInputChange} />
-              </ImageInput>
+              <Upload src={greenscreen} handleChange={handleInputChange} />
             </Box>
             <Box flex elevation="small">
-              <ImageInput src={background}>
-                <Button
-                  a11yTitle="Select background"
-                  primary
-                  color="fab"
-                  icon={<Select color="brand" />}
-                  onClick={() => setShowBgSelect(true)}
-                />
-              </ImageInput>
+              <Background
+                src={background}
+                handleClick={() => setShowBgSelect(true)}
+              />
             </Box>
           </Layout.Section>
           <Layout.Section elevation="medium">
