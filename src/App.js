@@ -1,4 +1,5 @@
 import { useState } from "react";
+import theme from "./theme";
 import { Grommet, Image, Grid, Box, Button, Heading, Text } from "grommet";
 import { Download, Select, Aggregate } from "grommet-icons";
 import UploadButton from "./UploadButton";
@@ -8,17 +9,6 @@ import Loader from "./Loader";
 import defaulGreenScreen from "./images/maxresdefault.jpg";
 import defaultBackground from "./images/background.jpeg";
 import preview from "./images/photobooth.jpeg";
-
-const myTheme = {
-  global: {
-    font: {
-      family: "Mulish",
-    },
-    colors: {
-      brand: "#6F09C3",
-    },
-  },
-};
 
 function App() {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
@@ -57,7 +47,7 @@ function App() {
 
   return (
     <main>
-      <Grommet theme={myTheme}>
+      <Grommet theme={theme}>
         {loading && <Loader />}
         {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
         <Grid
@@ -122,6 +112,7 @@ function App() {
 
           <Box gridArea="create" elevation="medium">
             <Button
+              a11yTitle="Create image"
               label="Create"
               primary
               size="large"
