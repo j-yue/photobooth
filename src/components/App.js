@@ -10,6 +10,8 @@ import defaulGreenScreen from "../images/maxresdefault.jpg";
 import defaultBackground from "../images/background.jpeg";
 import preview from "../images/photobooth.jpeg";
 
+import Layout from "./Layout";
+
 const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
   const [background, setBackground] = useState(defaultBackground);
@@ -50,22 +52,8 @@ const App = () => {
       <Grommet theme={theme}>
         {loading && <Loader />}
         {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
-        <Grid
-          fill
-          pad="large"
-          gap="medium"
-          columns={["full"]}
-          rows={["auto", "auto", "auto", "auto", "flex", "auto"]}
-          areas={[
-            { name: "header", start: [0, 0], end: [0, 0] },
-            { name: "intro", start: [0, 1], end: [0, 1] },
-            { name: "inputs", start: [0, 2], end: [0, 2] },
-            { name: "create", start: [0, 3], end: [0, 3] },
-            { name: "output", start: [0, 4], end: [0, 4] },
-            { name: "download", start: [0, 5], end: [0, 5] },
-          ]}
-        >
-          <Box gridArea="header">
+        <Layout>
+          <Layout.Section>
             <Heading
               margin="none"
               color="brand"
@@ -75,15 +63,13 @@ const App = () => {
             >
               Photobooth App
             </Heading>
-          </Box>
-
-          <Box gridArea="intro" align="center">
+          </Layout.Section>
+          <Layout.Section align="center">
             <Heading level="2" textAlign="center" responsive margin="none">
               Replace greenscreens with spooky backgrounds!
             </Heading>
-          </Box>
-
-          <Box direction="row" gap="large" gridArea="inputs">
+          </Layout.Section>
+          <Layout.Section direction="row" gap="large">
             <Box flex elevation="small">
               <UploadButton handleChange={handleInputChange} />
               <Image
@@ -108,9 +94,8 @@ const App = () => {
                 src={background}
               />
             </Box>
-          </Box>
-
-          <Box gridArea="create" elevation="medium">
+          </Layout.Section>
+          <Layout.Section elevation="medium">
             <Button
               a11yTitle="Create image"
               label="Create"
@@ -120,14 +105,12 @@ const App = () => {
               icon={<Aggregate />}
               onClick={handleCreate}
             />
-          </Box>
-
-          <Box
+          </Layout.Section>
+          <Layout.Section
             direction="column"
             justify="center"
             align="center"
             elevation="xlarge"
-            gridArea="output"
           >
             <Image
               fill
@@ -156,12 +139,11 @@ const App = () => {
               size="large"
               onClick={handleDownload}
             />
-          </Box>
-
+          </Layout.Section>
           <Text textAlign="center" margin="small">
             Please wait a few seconds for download to start
           </Text>
-        </Grid>
+        </Layout>
       </Grommet>
     </main>
   );
