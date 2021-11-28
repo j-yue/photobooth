@@ -11,10 +11,10 @@ const Fab = ({ children }) => {
 };
 
 // stack a control element on top of an image
-const ImageInput = ({ src, children }) => {
+const ImageInput = ({ src, children, alt }) => {
   return (
     <Stack anchor="top-left" fill>
-      <Image fill fit="cover" src={src} />
+      <Image fill fit="cover" src={src} alt={alt} />
       <Fab>{children}</Fab>
     </Stack>
   );
@@ -22,7 +22,7 @@ const ImageInput = ({ src, children }) => {
 
 const Upload = ({ src, handleChange }) => {
   return (
-    <ImageInput src={src}>
+    <ImageInput src={src} alt="Uploaded greenscreen image">
       <UploadButton handleChange={handleChange} />
     </ImageInput>
   );
@@ -30,7 +30,7 @@ const Upload = ({ src, handleChange }) => {
 
 const Background = ({ src, handleClick }) => {
   return (
-    <ImageInput src={src}>
+    <ImageInput src={src} alt="Selected background image">
       <Button
         a11yTitle="Select background"
         primary
