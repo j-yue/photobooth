@@ -66,7 +66,7 @@ const App = () => {
               </ImageInput>
             </Box>
             <Box flex elevation="small">
-              <ImageInput src={background}>
+              <ImageInput src={background} a11y="Select background">
                 <Button
                   plain
                   margin="small"
