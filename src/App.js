@@ -56,121 +56,123 @@ function App() {
   };
 
   return (
-    <Grommet theme={myTheme}>
-      {loading && <Loader />}
-      {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
-      <Grid
-        fill
-        pad="large"
-        gap="medium"
-        columns={["full"]}
-        rows={["auto", "auto", "auto", "auto", "flex", "auto"]}
-        areas={[
-          { name: "header", start: [0, 0], end: [0, 0] },
-          { name: "intro", start: [0, 1], end: [0, 1] },
-          { name: "inputs", start: [0, 2], end: [0, 2] },
-          { name: "create", start: [0, 3], end: [0, 3] },
-          { name: "output", start: [0, 4], end: [0, 4] },
-          { name: "download", start: [0, 5], end: [0, 5] },
-        ]}
-      >
-        <Box gridArea="header">
-          <Heading
-            margin="none"
-            color="brand"
-            level="1"
-            alignSelf="center"
-            responsive
-          >
-            Photobooth App
-          </Heading>
-        </Box>
-
-        <Box gridArea="intro" align="center">
-          <Heading level="2" textAlign="center" responsive margin="none">
-            Replace greenscreens with spooky backgrounds!
-          </Heading>
-        </Box>
-
-        <Box direction="row" gap="large" gridArea="inputs">
-          <Box flex elevation="small">
-            <UploadButton handleChange={handleInputChange} />
-            <Image
-              fill
-              fit="cover"
-              a11yTitle="Greenscreen image"
-              src={greenscreen}
-            />
-          </Box>
-          <Box flex elevation="small">
-            <Button
-              plain
-              margin="small"
-              icon={<Select color="brand" />}
-              label="Background"
-              onClick={() => setShowBgSelect(true)}
-            />
-            <Image
-              fill
-              fit="cover"
-              a11yTitle="Background image"
-              src={background}
-            />
-          </Box>
-        </Box>
-
-        <Box gridArea="create" elevation="medium">
-          <Button
-            label="Create"
-            primary
-            size="large"
-            style={{ borderRadius: 0 }}
-            icon={<Aggregate />}
-            onClick={handleCreate}
-          />
-        </Box>
-
-        <Box
-          direction="column"
-          justify="center"
-          align="center"
-          elevation="xlarge"
-          gridArea="output"
+    <main>
+      <Grommet theme={myTheme}>
+        {loading && <Loader />}
+        {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
+        <Grid
+          fill
+          pad="large"
+          gap="medium"
+          columns={["full"]}
+          rows={["auto", "auto", "auto", "auto", "flex", "auto"]}
+          areas={[
+            { name: "header", start: [0, 0], end: [0, 0] },
+            { name: "intro", start: [0, 1], end: [0, 1] },
+            { name: "inputs", start: [0, 2], end: [0, 2] },
+            { name: "create", start: [0, 3], end: [0, 3] },
+            { name: "output", start: [0, 4], end: [0, 4] },
+            { name: "download", start: [0, 5], end: [0, 5] },
+          ]}
         >
-          <Image
-            fill
-            fit="contain"
-            alignSelf="center"
-            src={output}
-            a11yTitle="Output image"
-          />
-          {!showPreview && (
-            <Canvas
-              inputs={inputs}
-              setOutput={setOutput}
-              setLoading={setLoading}
-              loading={loading}
-              setP5Instance={setP5Instance}
-            />
-          )}
-          <Button
-            fill="horizontal"
-            gridArea="download"
-            disabled={showPreview ? true : false}
-            secondary
-            icon={<Download color="brand" />}
-            label="Download"
-            style={{ borderRadius: "0", border: "none" }}
-            size="large"
-            onClick={handleDownload}
-          />
-        </Box>
+          <Box gridArea="header">
+            <Heading
+              margin="none"
+              color="brand"
+              level="1"
+              alignSelf="center"
+              responsive
+            >
+              Photobooth App
+            </Heading>
+          </Box>
 
-        <Text textAlign="center" margin="small">
-          Please wait a few seconds for download to start
-        </Text>
-      </Grid>
-    </Grommet>
+          <Box gridArea="intro" align="center">
+            <Heading level="2" textAlign="center" responsive margin="none">
+              Replace greenscreens with spooky backgrounds!
+            </Heading>
+          </Box>
+
+          <Box direction="row" gap="large" gridArea="inputs">
+            <Box flex elevation="small">
+              <UploadButton handleChange={handleInputChange} />
+              <Image
+                fill
+                fit="cover"
+                a11yTitle="Greenscreen image"
+                src={greenscreen}
+              />
+            </Box>
+            <Box flex elevation="small">
+              <Button
+                plain
+                margin="small"
+                icon={<Select color="brand" />}
+                label="Background"
+                onClick={() => setShowBgSelect(true)}
+              />
+              <Image
+                fill
+                fit="cover"
+                a11yTitle="Background image"
+                src={background}
+              />
+            </Box>
+          </Box>
+
+          <Box gridArea="create" elevation="medium">
+            <Button
+              label="Create"
+              primary
+              size="large"
+              style={{ borderRadius: 0 }}
+              icon={<Aggregate />}
+              onClick={handleCreate}
+            />
+          </Box>
+
+          <Box
+            direction="column"
+            justify="center"
+            align="center"
+            elevation="xlarge"
+            gridArea="output"
+          >
+            <Image
+              fill
+              fit="contain"
+              alignSelf="center"
+              src={output}
+              a11yTitle="Output image"
+            />
+            {!showPreview && (
+              <Canvas
+                inputs={inputs}
+                setOutput={setOutput}
+                setLoading={setLoading}
+                loading={loading}
+                setP5Instance={setP5Instance}
+              />
+            )}
+            <Button
+              fill="horizontal"
+              gridArea="download"
+              disabled={showPreview ? true : false}
+              secondary
+              icon={<Download color="brand" />}
+              label="Download"
+              style={{ borderRadius: "0", border: "none" }}
+              size="large"
+              onClick={handleDownload}
+            />
+          </Box>
+
+          <Text textAlign="center" margin="small">
+            Please wait a few seconds for download to start
+          </Text>
+        </Grid>
+      </Grommet>
+    </main>
   );
 }
 
