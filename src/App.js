@@ -15,7 +15,7 @@ const myTheme = {
       family: "Mulish",
     },
     colors: {
-      brand: "#C36F09",
+      brand: "#6F09C3",
     },
   },
 };
