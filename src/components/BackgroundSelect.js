@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
-import { Layer, Box, Avatar, Text, Heading, InfiniteScroll } from "grommet";
+import {
+  Layer,
+  Box,
+  Avatar,
+  Text,
+  Stack,
+  Heading,
+  InfiniteScroll,
+  Button,
+} from "grommet";
+import { Close } from "grommet-icons";
 import background from "../images/background.jpeg";
 import ghost from "../images/ghost.jpeg";
 import charmed from "../images/charmed.jpg";
@@ -29,7 +39,7 @@ const LazyAvatar = ({ src }) => {
   return <Avatar src={img} />;
 };
 
-const BackgroundSelect = ({ handleBgSelect }) => {
+const BackgroundSelect = ({ handleBgSelect, handleClose }) => {
   const gallery = [
     [background, "scary mansion"],
     [ghost, "ghost"],
@@ -65,9 +75,23 @@ const BackgroundSelect = ({ handleBgSelect }) => {
         pad="large"
         gap="medium"
       >
-        <Heading level="2" margin="none" textAlign="center">
-          Select background
-        </Heading>
+        <Stack anchor="top-right" fill>
+          <Heading
+            level="2"
+            margin={{ bottom: "medium", top: "xlarge" }}
+            textAlign="center"
+          >
+            Select background
+          </Heading>
+          <Button
+            plain
+            pad="medium"
+            icon={<Close color="#FFFFFF" size="medium" />}
+            a11yTitle="Close background selection"
+            onClick={handleClose}
+          />
+        </Stack>
+
         <InfiniteScroll items={gallery}>
           {([src, des]) => (
             <div

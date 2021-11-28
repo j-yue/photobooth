@@ -60,7 +60,12 @@ const App = () => {
     <main>
       <Grommet theme={theme}>
         {loading && <Loader />}
-        {showBgSelect && <BackgroundSelect handleBgSelect={handleBgSelect} />}
+        {showBgSelect && (
+          <BackgroundSelect
+            handleBgSelect={handleBgSelect}
+            handleClose={() => setShowBgSelect(false)}
+          />
+        )}
         <Layout>
           <Layout.Section>
             <Header />
