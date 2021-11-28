@@ -1,4 +1,4 @@
-import { Layer, Box, Avatar, Text, Heading } from "grommet";
+import { Layer, Box, Avatar, Text, Heading, InfiniteScroll } from "grommet";
 import background from "./images/background.jpeg";
 import ghost from "./images/ghost.jpeg";
 import charmed from "./images/charmed.jpg";
@@ -56,18 +56,20 @@ const BackgroundSelect = ({ handleBgSelect }) => {
         <Heading level="2" margin="none" textAlign="center">
           Select background
         </Heading>
-        {gallery.map(([src, des]) => (
-          <div
-            className="bgSelect"
-            key={src}
-            onClick={() => handleBgSelect(src)}
-          >
-            <Box direction="row" gap="large" align="center">
-              <Avatar src={src} />
-              <Text>{des}</Text>
-            </Box>
-          </div>
-        ))}
+        <InfiniteScroll items={gallery}>
+          {([src, des]) => (
+            <div
+              className="bgSelect"
+              key={src}
+              onClick={() => handleBgSelect(src)}
+            >
+              <Box direction="row" gap="large" align="center" margin="medium">
+                <Avatar src={src} />
+                <Text>{des}</Text>
+              </Box>
+            </div>
+          )}
+        </InfiniteScroll>
       </Box>
     </Layer>
   );
