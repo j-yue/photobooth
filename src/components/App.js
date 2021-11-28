@@ -1,14 +1,14 @@
 import { useState } from "react";
-import theme from "./theme";
+import theme from "../theme";
 import { Grommet, Image, Grid, Box, Button, Heading, Text } from "grommet";
 import { Download, Select, Aggregate } from "grommet-icons";
 import UploadButton from "./UploadButton";
 import BackgroundSelect from "./BackgroundSelect";
 import Canvas from "./Canvas";
 import Loader from "./Loader";
-import defaulGreenScreen from "./images/maxresdefault.jpg";
-import defaultBackground from "./images/background.jpeg";
-import preview from "./images/photobooth.jpeg";
+import defaulGreenScreen from "../images/maxresdefault.jpg";
+import defaultBackground from "../images/background.jpeg";
+import preview from "../images/photobooth.jpeg";
 
 const App = () => {
   const [greenscreen, setGreenscreen] = useState(defaulGreenScreen);
