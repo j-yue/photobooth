@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Layer, Box, Avatar, Text, Heading, InfiniteScroll } from "grommet";
 import background from "../images/background.jpeg";
 import ghost from "../images/ghost.jpeg";
@@ -16,6 +17,17 @@ import pastelhauntedhouse from "../images/pastelhauntedhouse.png";
 import pumpkin from "../images/pumpkin.png";
 import simpsons from "../images/simpsons.png";
 import space from "../images/space.png";
+import placeholder from "../images/placeholderSmall.jpg";
+
+const LazyAvatar = ({ src }) => {
+  const [img, setImg] = useState(placeholder);
+
+  useEffect(() => {
+    setImg(src);
+  }, []);
+
+  return <Avatar src={img} />;
+};
 
 const BackgroundSelect = ({ handleBgSelect }) => {
   const gallery = [
@@ -64,7 +76,7 @@ const BackgroundSelect = ({ handleBgSelect }) => {
               onClick={() => handleBgSelect(src)}
             >
               <Box direction="row" gap="large" align="center" margin="medium">
-                <Avatar src={src} />
+                <LazyAvatar src={src} />
                 <Text>{des}</Text>
               </Box>
             </div>
