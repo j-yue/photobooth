@@ -39,26 +39,27 @@ const LazyAvatar = ({ src }) => {
   return <Avatar src={img} />;
 };
 
+const GALLERY = [
+  [background, "scary mansion"],
+  [ghost, "ghost"],
+  [charmed, "the charmed house"],
+  [bats, "bats"],
+  [batsghosts, "bats, ghosts, and pumpkins"],
+  [clouds, "pastel clouds"],
+  [heartsblack, "hearts with black background"],
+  [heartsblue, "hearts with blue background"],
+  [hk, "hong kong"],
+  [maruchan, "maruchan noodles"],
+  [neondreamscape, "neondreamscape"],
+  [neonlights, "neon lights"],
+  [neonwalls, "neon walls"],
+  [pastelhauntedhouse, "pastel haunted house"],
+  [pumpkin, "pumpkin"],
+  [simpsons, "simpsons couch"],
+  [space, "space"],
+];
+
 const BackgroundSelect = ({ handleBgSelect, handleClose }) => {
-  const gallery = [
-    [background, "scary mansion"],
-    [ghost, "ghost"],
-    [charmed, "the charmed house"],
-    [bats, "bats"],
-    [batsghosts, "bats, ghosts, and pumpkins"],
-    [clouds, "pastel clouds"],
-    [heartsblack, "hearts with black background"],
-    [heartsblue, "hearts with blue background"],
-    [hk, "hong kong"],
-    [maruchan, "maruchan noodles"],
-    [neondreamscape, "neondreamscape"],
-    [neonlights, "neon lights"],
-    [neonwalls, "neon walls"],
-    [pastelhauntedhouse, "pastel haunted house"],
-    [pumpkin, "pumpkin"],
-    [simpsons, "simpsons couch"],
-    [space, "space"],
-  ];
   return (
     <Layer
       background={{ color: "#000", opacity: "50%" }}
@@ -92,7 +93,7 @@ const BackgroundSelect = ({ handleBgSelect, handleClose }) => {
           />
         </Stack>
 
-        <InfiniteScroll items={gallery}>
+        <InfiniteScroll items={GALLERY}>
           {([src, des]) => (
             <div
               className="bgSelect"
